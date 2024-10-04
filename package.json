@@ -8,12 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router": "^6.26.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode development",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +35,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.25.7",
+    "@types/webpack": "^5.28.5",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "react-router-dom": "^6.26.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }

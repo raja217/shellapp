@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+// Lazy load remote components
+const LoginPage = lazy(() => import('loginApp/login')); // Adjust to match exposed name
+const DashboardPage = lazy(() => import('dashboardApp/dashboard')); // Adjust to match exposed name
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <h1>Shell Micro Frontend Application</h1>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 
